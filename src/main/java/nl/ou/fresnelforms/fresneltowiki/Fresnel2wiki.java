@@ -347,9 +347,22 @@ public abstract class Fresnel2wiki {
 		String frmsParams = frmsParams(smwType, formattingProperties);
 		// rngName is always null for data type properties and for object props without autocompletion
 		if (objectPropRngName != null) {
-			autocomp = "|autocomplete on category=" + objectPropRngName;
+			//autocomp = "|autocomplete on category=" + objectPropRngName;
+			//"values from category=" instead of "autocomplete on category=". "autocomplete on category=" not working for MediaWiki 1.28.0
+            autocomp = "|values from category=" + objectPropRngName;
 		}
-		return "|- \n" + "! " + prop.getLocalName() + ": \n" + "| {{{field|" + name + autocomp + frmsParams + " }}}\n";
+		//return "|- \n" + "! " + prop.getLocalName() + ": \n" + "| {{{field|" + name + autocomp + frmsParams + " }}}\n";
+        //make form field label from semantic label instead from property name
+        String label = prop.getLocalName();
+        RDFNode labelRDFNode = formattingProperties.pick(FRESNEL.LABEL);
+        if (!FRESNEL.NONE.equals(labelRDFNode)) {
+              label = StringEscapeUtils.escapeXml10(labelRDFNode.toString());
+        }
+        return "|- \n" + "! " + label + ": \n" + "| {{{field|" + name + autocomp + frmsParams + " }}}\n";
+        
+
+		
+		
 	}
 
 	/**
@@ -403,7 +416,10 @@ public abstract class Fresnel2wiki {
 	private static Article makeTemplatePage(String boxName, String tplRows, String style) {
 		// Start of Template page with default CSS
 		String tplHead = "<includeonly>\n<div class='ib_resource'" + style + ">\n\n";
-		String tplFoot = "</div>\n\n[[Category:" + boxName + "]]\n" + "</includeonly>";
+		String tplFoot = "</div>\n\n[[Category:" + boxName + "]]\n" +
+                         //add default form for Template
+                        "{{#default_form:" + boxName + "}}\n" +
+				         "</includeonly>";
 		return makePage("Template", "Informbox " + boxName, tplHead + tplRows + tplFoot);
 	}
 

@@ -57,6 +57,20 @@ public class PropertyBinding {
 		this.fresnelStyle = new FresnelStyle();
 		this.isList = true;
 		this.mandatory =  false;
+        
+		//set autocomplection if Object Property have Range
+        nl.ou.fresnelforms.ontology.Property op = property.getProperty();
+        boolean isOP = false;
+        try { isOP = op.isObjectProperty();
+        
+        } catch (Throwable t) {}
+        if (isOP) {
+            if (op.asObjectProperty().getRange().size() >= 1){
+                //System.out.println("op.asObjectProperty().get(0).getURI() = " + op.asObjectProperty().getRange().get(0).getURI());
+                this.autoCompletionEnabled = true;
+             }
+         }
+
 		//init restrictions if there are any
 		nl.ou.fresnelforms.ontology.Property dtp = property.getProperty();
 		if (lens.getClassLensDomain()!=null){

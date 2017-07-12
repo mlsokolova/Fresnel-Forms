@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.ou.cs.is.protege.plugin</groupId>
 	<artifactId>fresnelforms</artifactId>
-	<version>2.0.1-SNAPSHOT</version>
+	<version>2.0.2-SNAPSHOT</version>
 	<name>Fresnel Forms</name>
     <url>http://is.cs.ou.nl/OWF/index.php5/Fresnel_Forms</url>
 	<description>Fresnel Forms plugin for Protégé</description>

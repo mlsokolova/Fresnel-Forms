@@ -283,7 +283,15 @@ public class JenaFresnelModel {
 			JenaUtils.replaceProperty(format, RDF.type, FRESNEL.FORMAT);
 			JenaUtils.replaceProperty(format, FRESNEL.PROPERTYFORMATDOMAIN, model.createResource(property.getURI()));
 			JenaUtils.replaceProperty(format, FRESNEL.GROUP, group);
-			JenaUtils.replaceProperty(format, FRESNEL.LABEL, model.createLiteral(property.getLocalName()));
+			
+			//JenaUtils.replaceProperty(format, FRESNEL.LABEL, model.createLiteral(property.getLocalName()));
+            //make Fresnel label from semantic label instead from property name
+			String label = property.getLocalName();
+			try {
+				label = property.getProperty().getLabel();				
+			}catch (Throwable t) {}
+			JenaUtils.replaceProperty(format, FRESNEL.LABEL, model.createLiteral(label));
+			
 			JenaPropertyBindingAdapter pbAdapter = new JenaPropertyBindingAdapter(
 					displayedLens.getPropertyBinding(uri), model);
 			pbAdapter.createDataType(format);

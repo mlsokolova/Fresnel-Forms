@@ -56,11 +56,17 @@ public class FresnelToWikiTest extends FresnelToWikiTestSuper {
 		assertTrue(containsString(PERSON_BOX_PAGE, "contractedTo"));
 		// Tests for auto completion
 		assertTrue(containsString(PERSON_FORM_PAGE,
-				"{{{field|TheFirm-Person-TheFirm-isEmployedBy|autocomplete on category=TheFirm-Company")
+				//"{{{field|TheFirm-Person-TheFirm-isEmployedBy|autocomplete on category=TheFirm-Company")
+				//"values from category=" instead of "autocomplete on category=". "autocomplete on category=" not working for MediaWiki 1.28.0
+				"{{{field|TheFirm-Person-TheFirm-isEmployedBy|values from category=TheFirm-Company")
 				&& (containsString(PERSON_FORM_PAGE,
-						"{{{field|TheFirm-Person-TheFirm-freeLancesTo|autocomplete on category=TheFirm-Company") || containsString(
+						//"{{{field|TheFirm-Person-TheFirm-freeLancesTo|autocomplete on category=TheFirm-Company") || containsString(
+						//"values from category=" instead of "autocomplete on category=". "autocomplete on category=" not working for MediaWiki 1.28.0
+						"{{{field|TheFirm-Person-TheFirm-freeLancesTo|values from category=TheFirm-Company") || containsString(
 						PERSON_FORM_PAGE,
-						"{{{field|TheFirm-Person-TheFirm-freeLancesTo|autocomplete on category=TheFirm-Person"))
+						//"{{{field|TheFirm-Person-TheFirm-freeLancesTo|autocomplete on category=TheFirm-Person"))
+						//"values from category=" instead of "autocomplete on category=". "autocomplete on category=" not working for MediaWiki 1.28.0
+						"{{{field|TheFirm-Person-TheFirm-freeLancesTo|values from category=TheFirm-Person"))
 				&& !containsString(PERSON_FORM_PAGE, "{{{autocomplete on category=null"));
 		// Tests for resourceStyle Person Box (a more specific style has been added in the test fresnel file)
 		assertTrue(containsString(PERSON_BOX_PAGE, "color:yellow; color:purple;")
