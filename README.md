@@ -16,7 +16,7 @@ There is several changes for Fresnel Form:
 - "values from category=" instead of "autocomplete on category=". "autocomplete on category=" not working for MediaWiki 1.28.0 (nl.ou.fresnelforms.fresneltowikitest.FresnelToWikiTest.testFresnelToWiki)
 - make Fresnel label from semantic label instead from property name (nl.ou.fresnelforms.jena.JenaFresnelModel.createFormatsFromLensProperties)
 
-##Testing Configuration
+## Testing Configuration
 Apache Maven 3.2.2
 PHP 5.6.26
 MariaDB 10.0.21
@@ -28,8 +28,8 @@ ParceFunctions 1.6.0
 Character Escapes 0.9.1
 Protégé 5.0.0-beta-17
 
-##Architecture
-####Semantic Web
+## Architecture
+#### Semantic Web
 It model based on guess that all phenomena world can be described by using three parts: subject, predicate, object:
 ...
 "Contextual Search for Volkswagen and the Automotive Industry" "hasMember" "William Greenly"
@@ -59,7 +59,7 @@ The next few triples:
 "hasMember" rdfs:range "Person"
 ...
 
-####About Semantic Mediawiki(SMW)
+#### About Semantic Mediawiki(SMW)
 It's Wiki software 
 Semantic MediaWiki(SMW) provides human-readable interface (Pages) and machine-readable interface (Semantic Web). Both use the same data.
 See [https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki](https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki) 
@@ -72,15 +72,15 @@ Form (helps to create Wiki Pages using SMW Template)
 See [https://www.semantic-mediawiki.org/wiki/Extension:Page_Forms](https://www.semantic-mediawiki.org/wiki/Extension:Page_Forms) 
 Any Page, including Category, Property, Template and Form can be exported to xml file.  Then this xml file can be imported to any other or to the same SMW.
 
-####About Apache Jena Fuseki
+#### About Apache Jena Fuseki
 [Apache Jena - Fuseki: serving RDF data over HTTP](https://jena.apache.org/documentation/fuseki2/) 
 Fuseki is integrated with TDB triple store, see [https://jena.apache.org/documentation/tdb/index.html](https://jena.apache.org/documentation/tdb/index.html) 
 
-####About Protégé
+#### About Protégé
 Protégé is a free, open-source ontology editor.
 [https://protegewiki.stanford.edu/wiki/WebProtege](https://protegewiki.stanford.edu/wiki/WebProtege) 
 
-####About Fresnel Vocabulary
+#### About Fresnel Vocabulary
 [https://www.w3.org/2005/04/fresnel-info/manual/](https://www.w3.org/2005/04/fresnel-info/manual/) 
 Fresnel is a simple, browser-independent vocabulary for specifying how to display RDF models in human-readable form.
 Foundational concepts:
